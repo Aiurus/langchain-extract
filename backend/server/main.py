@@ -48,14 +48,14 @@ if ORIGINS:
 def ready() -> str:
     return "ok"
 
+EMBEDDING_MODEL_REPO = "sentence-transformers/all-mpnet-base-v2"
+EMBEDDING_MODEL_NAME = "all-mpnet-base-v2"
+EMBEDDING_FUNCTION = SentenceTransformerEmbeddings(model_name=EMBEDDING_MODEL_NAME)
 
 # Include API endpoints for extractor definitions
 app.include_router(extractors.router)
 app.include_router(examples.router)
 app.include_router(extract.router)
-app.include_router(suggest.router)
-app.include_router(shared.router)
-app.include_router(configurables.router)
 
 add_routes(
     app,
